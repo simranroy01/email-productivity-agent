@@ -1,121 +1,142 @@
 [
   {
     "id": 1,
-    "sender": "maya.rao@acme-dev.io",
-    "subject": "Can we meet Tuesday at 2 PM?",
-    "received_date": "2025-11-25 09:12:00",
-    "body": "Hi Simran — quick one: can we meet Tuesday at 2 PM to review the UI changes? I’ll bring the updated mockups. If that conflicts, suggest another slot. Thanks — Maya."
+    "sender": "sarah.jenkins@tech-corp.io",
+    "subject": "Urgent: Q4 Roadmap & Budget Review",
+    "received_date": "2025-11-25 09:30:00",
+    "body": "Hi Simran,\n\nI've been reviewing the Q4 projections and I'm concerned about the burn rate on the Phoenix project. We are currently 15% over budget.\n\nI need you to do three things by the end of this week:\n1. Review the attached AWS expense report and flag any anomalies.\n2. Draft a revised timeline for the mobile app launch.\n3. Schedule a sync with the engineering leads for next Monday.\n\nAlso, please let me know if we can cut the marketing spend for November. This is high priority.\n\nThanks,\nSarah"
   },
   {
     "id": 2,
-    "sender": "daniel@brightbridge.co",
-    "subject": "Quick sync: Onboarding Funnel",
-    "received_date": "2025-11-24 14:05:00",
-    "body": "Simran — I blocked Tuesday 2 PM for a 30-minute sync on the onboarding funnel data. Confirm and I’ll send a calendar invite. Cheers, Dan."
+    "sender": "digest@startupsaily.com",
+    "subject": "Startup Daily: AI is eating the world",
+    "received_date": "2025-11-25 08:15:00",
+    "body": "Good morning! Here is your daily digest.\n\nToday's Top Stories:\n1. OpenAI releases new model that can code better than humans.\n2. Google announces quantum breakthrough in Santa Barbara.\n3. Why VC funding is drying up for Series B startups.\n\nSponsored: Click here to get 50% off your cloud hosting credits. \n\nRead the full stories on our website."
   },
   {
     "id": 3,
-    "sender": "pm+phoenix@orbital.team",
-    "subject": "Urgent: Milestone alignment needed",
-    "received_date": "2025-11-24 16:40:00",
-    "body": "Hi — are you available Tuesday 2 PM to align on milestones for Project Phoenix? Need your input on deliverable timelines before the steerco meeting. Regards, Phoenix PM."
+    "sender": "dave.d@client-focus.net",
+    "subject": "Re: Deliverables for Phase 2",
+    "received_date": "2025-11-24 16:45:00",
+    "body": "Simran,\n\nI just saw the latest build. Honestly, I'm not happy with the color palette—it doesn't match the brand guidelines we discussed last month. The blue is too dark and the font is hard to read on mobile.\n\nWe need these fixed before the stakeholder demo on Thursday. Can you please ensure the design team updates the CSS and pushes a new build by Wednesday noon? I don't want to be the one to tell the CEO the demo is delayed.\n\nRegards,\nDave"
   },
   {
     "id": 4,
-    "sender": "accounts@clearsky-consulting.com",
-    "subject": "Client call request - Agenda check",
-    "received_date": "2025-11-24 18:11:00",
-    "body": "Hello Simran, the client requested a brief status call Tuesday at 2:00 PM. Can you confirm availability so we can finalize the agenda? Thanks, Accounts Team."
+    "sender": "hr-updates@company.com",
+    "subject": "Policy Update: Remote Work Guidelines",
+    "received_date": "2025-11-24 14:00:00",
+    "body": "Team,\n\nEffective December 1st, we are updating our hybrid work policy. Employees are now required to be in the office 3 days a week (Tuesday-Thursday). \n\nExceptions will be made for those with prior approval from their VP. Please update your calendar locations accordingly. If you have concerns, please discuss them with your direct manager before Friday.\n\nBest,\nPeople Ops"
   },
   {
     "id": 5,
-    "sender": "digest@weeklytech.world",
-    "subject": "Weekly Tech Digest — Nov 20, 2025",
-    "received_date": "2025-11-20 07:00:00",
-    "body": "Hi — your Weekly Tech Digest is here: top AI papers, 3 open-source tools to try, plus a short security bulletin. Read more inside."
+    "sender": "auto-alert@jira-notifications.com",
+    "subject": "[JIRA] Ticket #4922 assigned to you",
+    "received_date": "2025-11-24 11:20:00",
+    "body": "A new ticket has been assigned to you by Mike Ross.\n\nTicket: PROJ-4922\nPriority: High\nDescription: The login page is throwing a 500 error when users try to reset their password via email link. This is affecting 5% of our user base.\n\nDeadline: Immediate fix required."
   },
   {
     "id": 6,
-    "sender": "hello@productpulse.news",
-    "subject": "Product Updates + UX Tips (Nov edition)",
-    "received_date": "2025-11-20 08:15:00",
-    "body": "Hey Simran — this month’s Product Pulse: A/B testing case studies, a checklist for onboarding flows, and our spotlight interview with a PM at NeonApps."
+    "sender": "promotions@uber-eats-clone.com",
+    "subject": "50% OFF your next 5 orders!",
+    "received_date": "2025-11-24 10:05:00",
+    "body": "Hungry? We miss you! Use code COMEBACK50 to get half off your next 5 orders. Valid until midnight tonight. Order now and satisfy those cravings."
   },
   {
     "id": 7,
-    "sender": "team@devopsweekly.io",
-    "subject": "DevOps Weekly — Tools, Tutorials, Jobs",
-    "received_date": "2025-11-20 06:50:00",
-    "body": "Hello — This week: Docker tips, cost-saving strategies for cloud infra, and 5 remote DevOps roles. Click through for full articles."
+    "sender": "maya.rao@acme-dev.io",
+    "subject": "Coffee chat?",
+    "received_date": "2025-11-23 15:30:00",
+    "body": "Hey Simran! Long time no see. I'm going to be in your area next Tuesday afternoon. Do you have 30 mins to grab a coffee and catch up? I'd love to pick your brain about the new product you're working on. Let me know!"
   },
   {
     "id": 8,
-    "sender": "editors@designroundup.org",
-    "subject": "Design Roundup: Colors, Grids & Microcopy",
-    "received_date": "2025-11-20 09:30:00",
-    "body": "Hi — curated picks for designers: new typeface releases, grid systems explained, and microcopy examples that convert. Enjoy."
+    "sender": "finance@billing-service.net",
+    "subject": "Invoice #9921 Overdue",
+    "received_date": "2025-11-23 09:00:00",
+    "body": "Dear Customer,\n\nThis is a reminder that Invoice #9921 for $450.00 was due on Nov 20th. Please remit payment immediately to avoid service interruption.\n\nIf you have already paid, please disregard this email.\n\nThank you."
   },
   {
     "id": 9,
-    "sender": "winner-notify@globalprizes.net",
-    "subject": "Congratulations! You won a lottery of $1,000,000 USD!",
-    "received_date": "2025-11-20 10:02:00",
-    "body": "Dear Winner — You have been selected to receive $1,000,000 USD. Reply with your bank details to claim. (This is a simulated spam email — do not reply.)"
+    "sender": "project-lead@internal.com",
+    "subject": "Weekly Status Report - Project Titan",
+    "received_date": "2025-11-22 17:00:00",
+    "body": "Hi All, here is the status for this week:\n\n- Backend API: Completed. \n- Frontend Dashboard: 80% done, waiting on final assets.\n- QA: Testing started, 3 minor bugs found.\n\nRisks: The server migration might take longer than expected. We might need to push the launch date by 2 days. \n\nNo action required from the team this weekend. Enjoy the break!"
   },
   {
     "id": 10,
-    "sender": "secure-alerts@onlineservice-mail.com",
-    "subject": "URGENT: Your account will be closed — Verify now",
-    "received_date": "2025-11-20 11:22:00",
-    "body": "Important: We detected suspicious activity. Click the link and verify your credentials immediately to avoid closure. (Phishing example.)"
+    "sender": "recruiter@linkedin-mail.com",
+    "subject": "Opportunity at Google",
+    "received_date": "2025-11-22 14:15:00",
+    "body": "Hi Simran, I came across your profile and was impressed by your work on the AI Email Agent. We have a Senior Python Engineer role open at Google that fits your skillset perfectly. \n\nWould you be open to a quick 15-minute call this week to discuss? Please reply with your resume if interested."
   },
   {
     "id": 11,
-    "sender": "offers@workfromhome-profits.ai",
-    "subject": "Make ₹2,00,000/week from home — Limited spots!",
-    "received_date": "2025-11-20 12:05:00",
-    "body": "Start earning today with our automated system. No experience required. Join now for a fast start. (Spam sample.)"
+    "sender": "vikram.dev@codebase.io",
+    "subject": "Code Review Request: PR #345",
+    "received_date": "2025-11-22 11:00:00",
+    "body": "Hi Simran,\n\nI've pushed the changes for the authentication module refactor. It touches the login logic and the session management cookies.\n\nCould you please review PR #345 by EOD tomorrow? I want to merge this before the sprint ends on Friday. Pay special attention to the JWT token handling logic.\n\nThanks,\nVikram"
   },
   {
     "id": 12,
-    "sender": "prizes@instantgiftclub.com",
-    "subject": "Re: You were selected — tax free gift inside",
-    "received_date": "2025-11-20 12:45:00",
-    "body": "Congratulations! Click the attachment to unlock your gift. (Contains typical spam phrasing.)"
+    "sender": "security-alert@fake-bank.com",
+    "subject": "ACTION REQUIRED: Verify your identity",
+    "received_date": "2025-11-22 10:30:00",
+    "body": "Dear User,\n\nWe detected an unusual login attempt from an IP address in Russia. For your safety, we have temporarily locked your account.\n\nPlease click the link below to verify your identity and unlock your funds immediately:\nhttp://fake-bank-login.com/verify\n\nFailure to do so within 24 hours will result in permanent account suspension."
   },
   {
     "id": 13,
-    "sender": "priya.kumar@financehub.local",
-    "subject": "Q3 Reconciliation Report - Due Date",
-    "received_date": "2025-11-18 15:00:00",
-    "body": "Hi Simran — friendly reminder to submit the Q3 expense reconciliation report by Friday COB. Let me know if you need any help with the spreadsheets. — Priya"
+    "sender": "newsletter@pythonweekly.com",
+    "subject": "Python Weekly - Issue 402",
+    "received_date": "2025-11-21 08:00:00",
+    "body": "Welcome to Python Weekly!\n\nIn this issue:\n- How to optimize Pandas DataFrames for speed.\n- Building RAG applications with LangChain and Llama 3.\n- Tutorial: Asynchronous programming in Python 3.12.\n\nUpcoming Events:\n- PyCon 2025 (Early Bird tickets ending soon)\n- DjangoCon Europe\n\nHappy Coding!"
   },
   {
     "id": 14,
-    "sender": "tasks@engineering.ops",
-    "subject": "Action required: Incident Summary for Weekly Report",
-    "received_date": "2025-11-19 09:20:00",
-    "body": "Hi — we need the performance test results and the incident summary included in the weekly report. Please upload to the shared drive before Friday 5 PM. Thanks."
+    "sender": "alice.w@marketing-team.com",
+    "subject": "Conflicting Meeting: Marketing Sync",
+    "received_date": "2025-11-21 16:00:00",
+    "body": "Hi Simran,\n\nI noticed you accepted the Marketing Sync for next Wednesday at 3 PM, but the Engineering All-Hands is scheduled for the same time.\n\nCan we move the Marketing Sync to Thursday morning instead? I'm free anytime between 10 AM and 12 PM. Let me know what works for you."
   },
   {
     "id": 15,
-    "sender": "anil.design@studioworks.co",
-    "subject": "Final Design Assets Handoff",
-    "received_date": "2025-11-19 10:05:00",
-    "body": "Simran — final reminder to hand in the design assets and documentation by Friday so we can start QA next week. Ping me if there’s a blocker."
+    "sender": "notifications@slack-export.com",
+    "subject": "You have 5 unread messages from #general",
+    "received_date": "2025-11-21 12:00:00",
+    "body": "Here is a summary of what you missed in #general:\n\n@ben: Does anyone know where the API keys are stored for the staging environment?\n@jess: I think they are in the Vault, check the wiki.\n@ben: Found them, thanks!\n\nClick here to open Slack."
   },
   {
     "id": 16,
-    "sender": "admin@internal-IT.com",
-    "subject": "System Maintenance: Downtime this Saturday",
-    "received_date": "2025-11-19 11:00:00",
-    "body": "All staff — The main server will be down for scheduled maintenance this Saturday from 12 AM to 4 AM. Please save your work. No action required."
+    "sender": "subscription@adobe.com",
+    "subject": "Your Creative Cloud subscription is renewing soon",
+    "received_date": "2025-11-20 09:00:00",
+    "body": "Hi,\n\nThis is a courtesy reminder that your annual subscription for Adobe Creative Cloud will renew automatically on December 5th, 2025. The charge will be $599.88.\n\nTo manage your plan or cancel, please visit your account settings page at least 24 hours before the renewal date."
   },
   {
     "id": 17,
-    "sender": "hr@company.com",
-    "subject": "Welcome our new CTO",
-    "received_date": "2025-11-18 09:00:00",
-    "body": "Team, please join me in welcoming our new CTO, Sarah Jenkins, starting next Monday. She brings 15 years of experience from TechGlobal."
+    "sender": "event-planner@tech-conf.org",
+    "subject": "Speaker Invitation: AI Summit 2025",
+    "received_date": "2025-11-19 14:00:00",
+    "body": "Dear Simran,\n\nWe have been following your work on open-source AI agents and would love to invite you as a panelist for the upcoming AI Summit in San Francisco.\n\nThe event is on January 15th. We would need you to confirm your participation by next Friday so we can finalize the agenda.\n\nPlease let us know if you are interested!\n\nBest,\nConference Team"
+  },
+  {
+    "id": 18,
+    "sender": "facilities@office-building.com",
+    "subject": "Elevator Maintenance Notice",
+    "received_date": "2025-11-19 08:30:00",
+    "body": "Tenants,\n\nPlease be advised that Elevator B will be out of service for routine maintenance tomorrow, Nov 20th, from 9 AM to 1 PM. Please use the freight elevator or the stairs during this time.\n\nWe apologize for the inconvenience."
+  },
+  {
+    "id": 19,
+    "sender": "mom@family-mail.com",
+    "subject": "Dinner this weekend?",
+    "received_date": "2025-11-18 19:00:00",
+    "body": "Hi honey! Are you free to come over for dinner this Saturday? Dad is making his famous biryani. Let me know if you can make it so I can buy groceries. Love, Mom."
+  },
+  {
+    "id": 20,
+    "sender": "support@cloud-service.com",
+    "subject": "Ticket Resolved: #8821",
+    "received_date": "2025-11-18 11:00:00",
+    "body": "Hello,\n\nThis email is to notify you that Ticket #8821 (Latency issues in US-East region) has been marked as resolved. Our engineers deployed a patch to the load balancer.\n\nIf you continue to experience issues, please reply to this email to reopen the ticket.\n\nThanks,\nCloud Support Team"
   }
 ]
