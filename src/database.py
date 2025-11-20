@@ -205,6 +205,13 @@ def update_prompt_in_db(key, new_text):
     conn.commit()
     conn.close()
 
+def clear_emails():
+    """Wipes all emails from the database to allow reloading."""
+    conn = get_connection()
+    conn.execute('DELETE FROM emails')
+    conn.commit()
+    conn.close()
+
 # --- INITIALIZATION ON IMPORT ---
 # This ensures DB exists as soon as this module is imported
 init_db()

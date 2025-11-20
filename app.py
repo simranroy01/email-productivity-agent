@@ -61,10 +61,10 @@ with st.sidebar:
     col1, col2 = st.columns(2)
     with col1:
         if st.button("🔄 Load Inbox"):
-            with st.spinner("Loading mock data..."):
+            with st.spinner("Loading..."):
                 database.load_mock_data()
-            st.success("Inbox Loaded!")
-            time.sleep(1)
+            st.success("Loaded!")
+            time.sleep(0.5)
             st.rerun()
             
     with col2:
@@ -98,10 +98,11 @@ with st.sidebar:
     
     st.markdown("---")
     if st.button("🗑️ Reset System"):
-        # For demo purposes, we might want to clear DB
-        # Here we just reset prompts as a safe default
         prompt_manager.reset_defaults()
-        st.warning("Prompts reset to default.")
+        database.clear_emails()  # <--- ADD THIS LINE
+        st.warning("System Reset: Prompts restored & Inbox cleared.")
+        time.sleep(1)
+        st.rerun()
 
 # --- MAIN TABS ---
 tab_inbox, tab_brain, tab_agent = st.tabs(["📬 Smart Inbox", "🧠 Agent Brain", "🤖 Email Agent"])
