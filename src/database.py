@@ -9,7 +9,7 @@ DB_NAME = 'email_agent.db'
 DB_PATH = os.path.join(DB_FOLDER, DB_NAME)
 MOCK_DATA_PATH = os.path.join('assets', 'mock_inbox.json')
 
-# --- DEFAULT PROMPTS (As per assignment requirements) ---
+# --- DEFAULT PROMPTS (Updated for Assignment Requirements) ---
 DEFAULT_PROMPTS = {
     "categorization": """
     Analyze the following email and categorize it into exactly one of these categories: 
@@ -32,12 +32,20 @@ DEFAULT_PROMPTS = {
     """,
     
     "auto_reply": """
-    Draft a professional, concise reply to this email based on the context.
-    - If it's a meeting, ask for an agenda or confirm if the time works.
-    - If it's a task, acknowledge receipt and estimate completion.
-    - If it's spam, ignore it (return empty string).
+    You are an intelligent email assistant. Draft a reply to this email based on the context.
     
-    Sign off as 'Simran's AI Agent'.
+    STRICT OUTPUT FORMAT:
+    Subject: [Insert professional subject line]
+    
+    [Insert Body of the email]
+    
+    ---
+    Suggested Follow-up: [Optional: 1 internal action the user should take]
+    
+    TONE INSTRUCTIONS:
+    - If Meeting: Ask for agenda or confirm time.
+    - If Task: Confirm receipt and estimated time.
+    - Sign off as 'Simran'.
     """
 }
 
@@ -109,7 +117,8 @@ def load_mock_data():
     if count == 0:
         print("Inbox empty. Loading mock data...")
         if os.path.exists(MOCK_DATA_PATH):
-            with open(MOCK_DATA_PATH, 'r') as f:
+            # FIX: Added encoding='utf-8' to prevent weird characters
+            with open(MOCK_DATA_PATH, 'r', encoding='utf-8') as f:
                 emails = json.load(f)
                 
             for email in emails:
@@ -166,7 +175,7 @@ def update_email_analysis(email_id, category=None, action_items=None, summary=No
         conn.close()
         return
 
-    updates.append("is_drafted = 0") # Reset draft status if re-analyzed
+    # FIX: Removed line that reset is_drafted = 0, so drafts persist even if you re-run analysis
     
     query += ", ".join(updates) + " WHERE id = ?"
     params.append(email_id)
