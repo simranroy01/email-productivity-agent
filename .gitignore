@@ -122,3 +122,13 @@ dmypy.json
 # OS files
 .DS_Store
 Thumbs.db
+node_modules/
+dist/
+build/
+.DS_Store
+frontend/node_modules/
+frontend/dist/
+
+*.db
+.sqlite3
+data/.db
