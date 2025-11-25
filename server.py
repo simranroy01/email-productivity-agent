@@ -13,7 +13,29 @@ try:
 except ImportError:
     ai_email_generator = None
 
-app = FastAPI()
+# Define the lifespan context manager for startup events
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup logic: Check if DB is empty and seed it
+    print("🚀 Server Starting: Checking Database...")
+    conn = database.get_connection()
+    cursor = conn.execute('SELECT count(*) FROM emails')
+    count = cursor.fetchone()[0]
+    conn.close()
+    
+    if count == 0:
+        print("📦 Database empty. Auto-seeding mock data...")
+        database.load_mock_data()
+    else:
+        print(f"✅ Database loaded with {count} emails.")
+    
+    yield
+    # Shutdown logic (optional)
+    print("🛑 Server Shutting Down")
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
