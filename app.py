@@ -3,6 +3,8 @@ import time
 import json
 import pandas as pd
 from src import database, email_processor, prompt_manager, llm_service
+from src import ai_email_generator
+import os
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
@@ -43,6 +45,17 @@ st.markdown("""
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
     .block-container { padding-top: 1rem; }
+    /* Make tab labels visible across color themes */
+    div[role="tab"], button[role="tab"] {
+        color: #0f172a !important; /* dark slate */
+        opacity: 1 !important;
+        font-weight: 600;
+    }
+    /* Ensure active tab has clear contrast */
+    div[role="tab"][aria-selected="true"], button[role="tab"][aria-selected="true"] {
+        color: #0b1220 !important;
+        background: transparent !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -51,6 +64,15 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role": "assistant", "content": "Hello! I'm your Email Productivity Agent. I've analyzed your inbox. Ask me anything, like 'What tasks are due soon?' or 'Summarize the email from Maya'."}
     ]
+
+# Ensure the user sees the mock inbox on the first app open in this Streamlit session.
+# We clear any existing DB rows and load the local mock data so the initial UI is
+# populated consistently for new sessions. AI generation will still only run when
+# the user clicks the "Load Inbox" button.
+if "initial_inbox_loaded" not in st.session_state:
+    database.clear_emails()
+    database.load_mock_data()
+    st.session_state.initial_inbox_loaded = True
 
 # --- SIDEBAR CONTROLS ---
 with st.sidebar:
@@ -62,8 +84,24 @@ with st.sidebar:
     with col1:
         if st.button("🔄 Load Inbox"):
             with st.spinner("Loading..."):
-                database.load_mock_data()
-            st.success("Loaded!")
+                # Clear existing emails so every load produces a fresh set
+                database.clear_emails()
+
+                # Prefer Gemini / Google Generative AI generated emails when the API key is available
+                gemini_key = os.getenv("GOOGLE_GEMINI_API_KEY")
+                if gemini_key:
+                    inserted = ai_email_generator.generate_and_insert_ai_emails(num_emails=20)
+                    if inserted and inserted > 0:
+                        st.success(f"Loaded {inserted} AI-generated emails")
+                    else:
+                        # Fallback to local mock (keeps app usable without a valid key)
+                        database.load_mock_data()
+                        st.warning("Gemini generation failed — loaded local mock data instead.")
+                else:
+                    # No API key set — keep the previous mock loading behavior
+                    database.load_mock_data()
+                    st.info("No GOOGLE_GEMINI_API_KEY detected — loaded local mock data.")
+
             time.sleep(0.5)
             st.rerun()
             
