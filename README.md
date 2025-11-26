@@ -1,55 +1,119 @@
-# Email Agent
+Intelligent Email Productivity Agent 📧
 
-An AI-powered email processing agent that categorizes and extracts information from emails using LLM.
+A full-stack AI-powered email assistant that doesn't just read emails but actively manages them. Built with a Prompt-Driven Architecture, allowing users to modify the agent's behavior (categorization rules, reply persona, extraction logic) purely by editing system prompts in the UI—no code changes required.
 
-## Features
+🚀 Key Features
 
-- Categorize emails automatically
-- Extract key information
-- Streamlit-based UI
+🧠 Prompt-Driven Logic: The "Brain" of the agent lives in the database. Users can edit the "Auto-Reply Persona" or "Categorization Rules" in the dashboard, and the backend adapts instantly.
 
-## Setup
+📥 Smart Ingestion Pipeline:
 
-1. Install dependencies: `pip install -r requirements.txt`
+Auto-categorizes emails into Tasks, Meetings, Newsletters, and Spam.
 
-If you plan to use the Google Gemini / Generative AI integration, ensure the client package is installed and up-to-date:
+Action Item Extraction: Automatically parses deadlines and deliverables from long email threads into structured JSON.
 
-```powershell
-pip install --upgrade google-generative-ai
-```
+💬 RAG Chat Agent: Chat with your inbox ("What tasks did Sarah assign me?") using Retrieval Augmented Generation.
 
-If you get an error like "module 'google.generativeai' has no attribute 'responses'", it's usually because:
+✍️ Human-in-the-Loop Drafting: The agent drafts replies but never sends them automatically. Users can review, edit, and save drafts safely.
 
-- the `google-generative-ai` package isn't installed correctly in your environment, or
-- an older/newer release of the package exposes a different API surface.
+⚡ Optimistic UI: The frontend simulates progress bars for immediate feedback while the backend processes heavy AI workloads.
 
-Try upgrading the package or reinstalling it in the environment you're running Streamlit from (same interpreter/environment). If pip fails with a network or permission error, check your connection and environment.
+🛠️ Tech Stack
 
-### Troubleshooting the google.generativeai client
+Frontend (Client)
 
-If you still see errors like "Installed google.generativeai package doesn't expose a supported API surface", use the included helper to inspect the installed package and confirm the available API surfaces:
+Framework: React (Vite)
 
-```powershell
-python src/check_genai.py
-```
+Styling: Chakra UI + Tailwind CSS
 
-The script will attempt to import `google.generativeai`, print the version if present, list top-level attributes, and indicate whether `chat` and `responses` are available. If neither exists, upgrade the client:
+State Management: React Query (TanStack Query)
 
-```powershell
-python -m pip install --upgrade google-generative-ai
-```
+Markdown Rendering: react-markdown
 
-Make sure to run the commands inside the same Python environment used to start Streamlit (e.g., the same virtualenv or conda env).
-2. Set your Gemini / Google Generative AI API key in `.env` as `GOOGLE_GEMINI_API_KEY` (used to generate AI emails when clicking "Load Inbox"). Do NOT commit your API key into source control — store it in a `.env` file or your environment. If not set, the app falls back to pre-generated mock data.
-3. Run the app: `streamlit run app.py`
+Backend (Server)
 
-## Project Structure
+Framework: FastAPI (Python)
 
-- `assets/`: Mock data
-- `data/`: SQLite database
-- `src/`: Source code
-  - `database.py`: Database models
-  - `llm_service.py`: Gemini / Google Generative AI LLM integration (uses `GOOGLE_GEMINI_API_KEY`)
-  - `prompt_manager.py`: Prompt management
-  - `email_processor.py`: Email processing logic
-- `app.py`: Main UI
+Database: SQLite (chosen for zero-config portability)
+
+AI Engine: Google Gemini Pro / Groq (Llama 3)
+
+Validation: Pydantic Models
+
+⚙️ Installation & Setup
+
+1. Clone the Repository
+
+git clone [https://github.com/your-username/email-productivity-agent.git](https://github.com/your-username/email-productivity-agent.git)
+cd email-productivity-agent
+
+
+2. Backend Setup
+
+Navigate to the root directory to set up the Python server.
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure Environment
+# Create a .env file in the root and add your API Key:
+echo "GOOGLE_GEMINI_API_KEY=your_key_here" > .env
+
+
+3. Frontend Setup
+
+Navigate to the frontend directory.
+
+cd frontend
+
+# Install Node modules
+npm install
+
+# Configure Environment
+# Create a .env file in frontend/ and add:
+echo "VITE_API_URL=http://localhost:8000" > .env
+
+
+▶️ Running Locally
+
+You need to run the Backend and Frontend in two separate terminals.
+
+Terminal 1 (Backend):
+
+# Make sure you are in the root folder
+python server.py
+# Server runs at http://localhost:8000
+
+
+Terminal 2 (Frontend):
+
+cd frontend
+npm run dev
+# Client runs at http://localhost:5173
+
+
+☁️ Deployment
+
+Backend (Render)
+
+Push code to GitHub.
+
+Create a new Web Service on Render.
+
+Build Command: pip install -r requirements.txt
+
+Start Command: uvicorn server:app --host 0.0.0.0 --port 10000
+
+Add Environment Variable: GOOGLE_GEMINI_API_KEY.
+
+Frontend (Vercel)
+
+Import the GitHub repo into Vercel.
+
+Set Root Directory to frontend.
+
+Add Environment Variable: VITE_API_URL = https://your-render-backend-url.onrender.com.
