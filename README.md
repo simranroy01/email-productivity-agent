@@ -1,119 +1,114 @@
-Intelligent Email Productivity Agent 📧
+# AI Email Productivity Agent 📧
 
-A full-stack AI-powered email assistant that doesn't just read emails but actively manages them. Built with a Prompt-Driven Architecture, allowing users to modify the agent's behavior (categorization rules, reply persona, extraction logic) purely by editing system prompts in the UI—no code changes required.
+A productivity assistant that analyses and helps manage your inbox: auto-categorization, action-extraction, draft-replies, plus a chat (RAG) interface to query your inbox.
 
-🚀 Key Features
+This repository contains two developer-facing surfaces:
 
-🧠 Prompt-Driven Logic: The "Brain" of the agent lives in the database. Users can edit the "Auto-Reply Persona" or "Categorization Rules" in the dashboard, and the backend adapts instantly.
+- A Streamlit demo app (root `app.py`) — this is the primary demo harness that shows the full prompt-driven email pipeline and the Agent Brain UI.
+- A React + Vite prototype SPA (in `frontend/`) — a modern, dark-themed single-page application that mirrors the Streamlit flows and uses a mocked API for local testing.
 
-📥 Smart Ingestion Pipeline:
+Why this repo?
 
-Auto-categorizes emails into Tasks, Meetings, Newsletters, and Spam.
+- Demonstrates a prompt-driven architecture: change classification, extraction, or reply persona via editable prompts in the UI.
+- Shows a complete experimental stack: email ingestion → LLM processing → draft suggestion → human review.
 
-Action Item Extraction: Automatically parses deadlines and deliverables from long email threads into structured JSON.
+----
 
-💬 RAG Chat Agent: Chat with your inbox ("What tasks did Sarah assign me?") using Retrieval Augmented Generation.
+## Quick start — Streamlit demo (Python)
 
-✍️ Human-in-the-Loop Drafting: The agent drafts replies but never sends them automatically. Users can review, edit, and save drafts safely.
+This is the fastest way to run a fully-contained demo locally.
 
-⚡ Optimistic UI: The frontend simulates progress bars for immediate feedback while the backend processes heavy AI workloads.
+Prerequisites
 
-🛠️ Tech Stack
+- Python 3.10+
+- Git
 
-Frontend (Client)
+PowerShell commands
 
-Framework: React (Vite)
-
-Styling: Chakra UI + Tailwind CSS
-
-State Management: React Query (TanStack Query)
-
-Markdown Rendering: react-markdown
-
-Backend (Server)
-
-Framework: FastAPI (Python)
-
-Database: SQLite (chosen for zero-config portability)
-
-AI Engine: Google Gemini Pro / Groq (Llama 3)
-
-Validation: Pydantic Models
-
-⚙️ Installation & Setup
-
-1. Clone the Repository
-
-git clone [https://github.com/your-username/email-productivity-agent.git](https://github.com/your-username/email-productivity-agent.git)
+```powershell
+# 1) Clone the repository (if you haven't already)
+git clone https://github.com/simranroy01/email-productivity-agent.git
 cd email-productivity-agent
 
+# 2) Create & activate a virtual environment
+python -m venv .venv
+.venv\Scripts\activate
 
-2. Backend Setup
-
-Navigate to the root directory to set up the Python server.
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
+# 3) Install Python dependencies
 pip install -r requirements.txt
 
-# Configure Environment
-# Create a .env file in the root and add your API Key:
-echo "GOOGLE_GEMINI_API_KEY=your_key_here" > .env
+# Optional: configure a cloud LLM key for generator (app will fall back to local mock data)
+# Add a .env file containing e.g. GOOGLE_GEMINI_API_KEY=your_key_here
 
+# 4) Run the Streamlit app
+streamlit run app.py
+```
 
-3. Frontend Setup
+Open http://localhost:8501 in your browser to view the demo.
 
-Navigate to the frontend directory.
+----
 
+## Frontend prototype — React + Vite (optional)
+
+The `frontend/` directory is a standalone SPA built with React, Chakra UI and Tailwind. It ships with a mocked API in `frontend/src/services/api.js` so it runs independently of the Python demo server.
+
+PowerShell commands
+
+```powershell
 cd frontend
-
-# Install Node modules
 npm install
-
-# Configure Environment
-# Create a .env file in frontend/ and add:
-echo "VITE_API_URL=http://localhost:8000" > .env
-
-
-▶️ Running Locally
-
-You need to run the Backend and Frontend in two separate terminals.
-
-Terminal 1 (Backend):
-
-# Make sure you are in the root folder
-python server.py
-# Server runs at http://localhost:8000
-
-
-Terminal 2 (Frontend):
-
-cd frontend
 npm run dev
-# Client runs at http://localhost:5173
+```
 
+The dev server starts at the Vite URL (commonly http://localhost:5173).
 
-☁️ Deployment
+----
 
-Backend (Render)
+## Project structure (high-level)
 
-Push code to GitHub.
+```
+.
+├─ app.py                   # Streamlit UI entrypoint
+├─ requirements.txt         # Python dependencies for the Streamlit app
+├─ src/                     # Python business logic and LLM adapters
+│  ├─ database.py
+│  ├─ email_processor.py
+│  ├─ llm_service.py
+│  ├─ prompt_manager.py
+│  └─ ai_email_generator.py
+├─ frontend/                # Optional SPA prototype (React + Vite)
+│  ├─ package.json
+│  ├─ src/
+│  │  ├─ components/        # Sidebar, Inbox, AgentBrain, ChatInterface
+│  │  └─ services/api.js     # mocked APIs used by the SPA
+│  └─ README.md
+└─ tests/                   # Unit tests (pytest)
+```
 
-Create a new Web Service on Render.
+----
 
-Build Command: pip install -r requirements.txt
+## Testing
 
-Start Command: uvicorn server:app --host 0.0.0.0 --port 10000
+Run Python tests from the project root (after creating/activating the venv):
 
-Add Environment Variable: GOOGLE_GEMINI_API_KEY.
+```powershell
+.venv\Scripts\activate
+pytest -q
+```
 
-Frontend (Vercel)
+----
 
-Import the GitHub repo into Vercel.
+## Developer notes & suggestions
 
-Set Root Directory to frontend.
+- The Streamlit demo checks for the `GOOGLE_GEMINI_API_KEY` environment variable and will attempt to generate AI emails if present; otherwise it uses local mock data.
+- The SPA `frontend/` directory uses an in-memory mock API for quick UI/UX iteration — when ready you can replace or proxy calls to a small backend service (FastAPI/Express) to run end-to-end.
+- Consider adding a small REST API and vector DB layer for a production-ready RAG experience.
 
-Add Environment Variable: VITE_API_URL = https://your-render-backend-url.onrender.com.
+----
+
+Thank you for exploring this project — if you'd like, I can:
+
+- Add an Express or FastAPI-based mock REST server wired to the SPA so the two sides communicate over HTTP.
+- Add unit tests for the frontend and small CI steps to make the demo easy to run in CI.
+
+License: MIT
