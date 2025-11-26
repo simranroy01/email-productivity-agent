@@ -103,3 +103,9 @@ pytest -q
 - The Streamlit demo checks for the `GOOGLE_GEMINI_API_KEY` environment variable and will attempt to generate AI emails if present; otherwise it uses local mock data.
 - The SPA `frontend/` directory uses an in-memory mock API for quick UI/UX iteration — when ready you can replace or proxy calls to a small backend service (FastAPI/Express) to run end-to-end.
 - Consider adding a small REST API and vector DB layer for a production-ready RAG experience.
+
+----
+
+## License
+
+This project is licensed under the MIT License — see the `LICENSE` file in the repository root for full details.
